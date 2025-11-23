@@ -12,6 +12,7 @@ Verity AI is a full-stack platform for customer KYC verification. It provides a 
 
 ## Architecture
 
+```mermaid
 flowchart LR
   subgraph Client["Frontend: React + Vite"]
     UI["Customer + Org UIs"]
@@ -54,6 +55,8 @@ flowchart LR
   Svc --> Storage
   Workers --> Redis
   Svc --> Workers
+```
+
 
 
 ## Tech Stack
