@@ -12,31 +12,30 @@ Verity AI is a full-stack platform for customer KYC verification. It provides a 
 
 ## Architecture
 
-```mermaid
 flowchart LR
-  subgraph Client[Frontend (React + Vite)]
-    UI[Customer + Org UIs]
-    Store[Zustand Session Store]
-    I18n[I18n Service]
-    APIClient[Fetch/axios]
+  subgraph Client["Frontend: React + Vite"]
+    UI["Customer + Org UIs"]
+    Store["Zustand Session Store"]
+    I18n["I18n Service"]
+    APIClient["Fetch / axios"]
   end
 
-  subgraph Backend[FastAPI]
-    Auth[/Auth: signup/login/refresh/]
-    Inv[/Invitations: create/list/validate/]
-    Sub[/Submissions: create/approve/reject/]
-    OTP[/OTP: send/verify/]
-    AI[/AI: OCR/Face/Liveness/Risk/]
-    Svc[Services Layer]
-    Models[SQLAlchemy Models]
+  subgraph Backend["Backend: FastAPI"]
+    Auth["Auth: signup / login / refresh"]
+    Inv["Invitations: create / list / validate"]
+    Sub["Submissions: create / approve / reject"]
+    OTP["OTP: send / verify"]
+    AI["AI: OCR / Face / Liveness / Risk"]
+    Svc["Services Layer"]
+    Models["SQLAlchemy Models"]
   end
 
-  subgraph External[Providers]
-    SMTP[(SMTP Email)]
-    SMS[(SMS Gateway)]
-    Storage[(Object Storage)]
-    Redis[(Redis Cache)]
-    Workers[Celery Workers]
+  subgraph External["External Providers"]
+    SMTP["SMTP Email"]
+    SMS["SMS Gateway"]
+    Storage["Object Storage"]
+    Redis["Redis Cache"]
+    Workers["Celery Workers"]
   end
 
   UI --> APIClient --> Auth
@@ -55,7 +54,7 @@ flowchart LR
   Svc --> Storage
   Workers --> Redis
   Svc --> Workers
-```
+
 
 ## Tech Stack
 - Frontend: React 18, Vite, TypeScript, React Router, Zustand, axios, lucide-react
